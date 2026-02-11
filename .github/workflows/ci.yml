@@ -31,6 +31,13 @@ jobs:
       - name: Register Poetry bin
         run: echo "${HOME}/.poetry/bin" >> $GITHUB_PATH
 
+      - name: Cache dependencies
+        id: cache-venv
+        uses: actions/cache@v2
+        with:
+          key: python-${{ steps.setup-python.outputs.python-version }}-poetry-lock-${{ hashFiles('poetry.lock') }}-toml-${{ hashFiles('pyproject.toml') }}-poetry-2.3.2
+          path: /home/runner/.cache/pypoetry/virtualenvs/
+
       - name: Install dependencies
         run: poetry install --no-root
 
@@ -71,6 +78,13 @@ jobs:
 
       - name: Register Poetry bin
         run: echo "${HOME}/.poetry/bin" >> $GITHUB_PATH
+
+      - name: Cache dependencies
+        id: cache-venv
+        uses: actions/cache@v2
+        with:
+          key: python-${{ steps.setup-python.outputs.python-version }}-poetry-lock-${{ hashFiles('poetry.lock') }}-toml-${{ hashFiles('pyproject.toml') }}-poetry-2.3.2
+          path: /home/runner/.cache/pypoetry/virtualenvs/
 
       - name: Install dependencies
         run: poetry install --no-root
