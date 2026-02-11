@@ -1,0 +1,25 @@
+set -eo pipefail
+
+COLOR_GREEN='tpit setaf 2;'
+COLOR_NC='tpit sgr0;'
+
+echo "Starting black"
+poetry run black .
+echo "black OK"
+
+echo "Starting ruff"
+poetry run ruff check --select I --fix
+poetry run ruff check --fix
+echo "ruff OK"
+
+echo "Starting mypy"
+poetry run mypy .
+echo "mypy OK"
+
+echo "Starting pytest with coverage"
+poetry run coverage run -m pytest
+poetry run coverage report -m
+poetry run coverage html
+echo "coverage OK"
+
+echo "${COLOR_GREEN}All tests passed successfully!${COLOR_NC}"
