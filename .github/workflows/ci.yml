@@ -16,7 +16,15 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Cache Poetry
+        id: cache-poetry
+        uses: actions/cache@v2
+        with:
+          key: poetry-2.3.2
+          path: ~/.local/
+
       - name: Install Poetry
+        if: steps.cache-poetry.outputs.cache-hit != 'true'  # cache 불러오기에 실패했을 때에만 설치합니다.
         run: |
           curl -sSL https://install.python-poetry.org | python3 - --version 2.3.2
 
@@ -49,7 +57,15 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Cache Poetry
+        id: cache-poetry
+        uses: actions/cache@v2
+        with:
+          key: poetry-2.3.2
+          path: ~/.local/
+
       - name: Install Poetry
+        if: steps.cache-poetry.outputs.cache-hit != 'true'  # cache 불러오기에 실패했을 때에만 설치합니다.
         run: |
           curl -sSL https://install.python-poetry.org | python3 - --version 2.3.2
 
