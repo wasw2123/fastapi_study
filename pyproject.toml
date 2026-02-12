@@ -7,10 +7,6 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
-    "fastapi (>=0.128.8,<0.129.0)",
-    "orjson (==3.10.12)",
-    "annotated (>=0.0.2,<0.0.3)",
-    "field (>=0.2.0,<0.3.0)"
 ]
 
 
@@ -35,7 +31,7 @@ line-length = 120
 target-version = "py313"
 
 [tool.mypy]
-plugins = ["pydantic.mypy"]
+#plugins = ["pydantic.mypy"]
 python_version = 3.13
 strict = true
 
