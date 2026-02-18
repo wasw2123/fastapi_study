@@ -7,5 +7,5 @@ def test_add() -> None:
 
 
 def test_mul() -> None:
-    result = mul(1, 2)
-    assert result == 2
+    result = mul(2, 2)
+    assert result == 4
