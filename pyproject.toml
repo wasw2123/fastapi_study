@@ -8,7 +8,7 @@ authors = [
 requires-python = ">=3.11"
 dependencies = [
     "fastapi (>=0.129.0,<0.130.0)",
-    "uvicorn (>=0.41.0,<0.42.0)"
+    "uvicorn (>=0.41.0,<0.42.0)",
 ]
 
 
@@ -36,6 +36,7 @@ target-version = "py313"
 plugins = ["pydantic.mypy"]
 python_version = 3.13
 strict = true
+exclude = ['old']
 
 [tool.coverage.run]
 omit = ["*/test_*.py"]
