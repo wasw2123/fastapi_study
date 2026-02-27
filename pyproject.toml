@@ -5,12 +5,17 @@ description = ""
 authors = [
     {name = "yimiro",email = "s_icay@naver.com"}
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.11,<4.0"
 dependencies = [
     "fastapi (>=0.129.0,<0.130.0)",
     "uvicorn (>=0.41.0,<0.42.0)",
     "edgedb (==2.2.0)",
     "httpx (==0.28.1)",
+    "tortoise-orm[asyncmy] (==0.23.0)",
+    "cryptography (==44.0.0)",
+    "aerich (==0.8.1)",
+    "tomlkit (==0.13.2)",
+    "pydantic-settings (==2.7.1)",
 ]
 
 
@@ -43,6 +48,6 @@ exclude = ['old']
 [tool.coverage.run]
 omit = ["*/test_*.py"]
 
-[tool.pytest._ini_options]
+[tool.pytest.ini_options]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "session"
