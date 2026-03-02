@@ -1,4 +1,24 @@
+# IDE Settings (PyCharm, VS Code)
 .idea/
+.vscode/
+
+# Python Compiled Files (실행 속도 향상을 위한 캐시)
 __pycache__/
-old/
+*.pyc
+
+# Virtual Environments (가상환경 - 용량이 큼)
+.venv/
+venv/
+env/
+
+# Environment Variables (보안 중요!)
 .env
+
+# Testing & Coverage (테스트 결과물)
+.pytest_cache/
+.coverage
+htmlcov/
+
+# System Files (Mac, Windows 시스템 파일)
+.DS_Store
+old/

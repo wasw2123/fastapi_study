@@ -2,36 +2,19 @@
 name = "fastapi-study"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "yimiro",email = "s_icay@naver.com"}
-]
 requires-python = ">=3.11,<4.0"
-dependencies = [
-    "fastapi (>=0.129.0,<0.130.0)",
-    "uvicorn (>=0.41.0,<0.42.0)",
-    "edgedb (==2.2.0)",
-    "httpx (==0.28.1)",
-    "tortoise-orm[asyncmy] (==0.23.0)",
-    "cryptography (==44.0.0)",
-    "aerich (==0.8.1)",
-    "tomlkit (==0.13.2)",
-    "pydantic-settings (==2.7.1)",
-]
+dependencies = ["fastapi (>=0.129.0,<0.130.0)", "uvicorn (>=0.41.0,<0.42.0)", "edgedb (==2.2.0)", "httpx (==0.28.1)", "tortoise-orm[asyncmy] (==0.23.0)", "cryptography (==44.0.0)", "aerich (==0.8.1)", "tomlkit (==0.13.2)", "pydantic-settings (==2.7.1)"]
 
+[[project.authors]]
+name = "yimiro"
+email = "s_icay@naver.com"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [dependency-groups]
-dev = [
-    "black (==24.10.0)",
-    "ruff (==0.8.2)",
-    "mypy (==1.13.0)",
-    "pytest (==8.3.4)",
-    "coverage (==7.6.9)",
-    "pytest-asyncio (==0.25.0)"
-]
+dev = ["black (==24.10.0)", "ruff (==0.8.2)", "mypy (==1.13.0)", "pytest (==8.3.4)", "coverage (==7.6.9)", "pytest-asyncio (==0.25.0)"]
 
 [tool.black]
 line-length = 120
@@ -43,7 +26,7 @@ target-version = "py313"
 plugins = ["pydantic.mypy"]
 python_version = 3.13
 strict = true
-exclude = ['old']
+exclude = ["old"]
 
 [tool.coverage.run]
 omit = ["*/test_*.py"]
@@ -51,3 +34,9 @@ omit = ["*/test_*.py"]
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "session"
+filterwornings = ["ignore::DeprecationWarning"]
+
+[tool.aerich]
+tortoise_orm = "app.configs.tortoise_config.TORTOISE_ORM"
+location = "./migrations"
+src_folder = "./."

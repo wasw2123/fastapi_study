@@ -1,6 +1,6 @@
 from tortoise import fields
 
 
-class Basemodel:
+class BaseModel:
     id = fields.BigIntField(primary_key=True)
     created_at = fields.DatetimeField(auto_now_add=True)
