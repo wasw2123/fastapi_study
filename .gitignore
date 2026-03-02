@@ -22,3 +22,5 @@ htmlcov/
 # System Files (Mac, Windows 시스템 파일)
 .DS_Store
 old/
+
+.dmypy.json
