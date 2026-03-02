@@ -33,7 +33,9 @@ jobs:
           cache: "poetry"
 
       - name: Install dependencies
-        run: poetry install --no-root
+        run: |
+          poetry lock
+          poetry install --no-root
 
       - name: Run Black
         run: poetry run black . --check
@@ -82,7 +84,9 @@ jobs:
           cache: "poetry"
 
       - name: Install dependencies
-        run: poetry install --no-root
+        run: |
+          poetry lock
+          poetry install --no-root
 
       - name: Setup edgedb
         uses: edgedb/setup-edgedb@v1
