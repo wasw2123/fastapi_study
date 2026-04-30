@@ -1,0 +1,28 @@
+services:
+  edgedb:
+    image: edgedb/edgedb:5
+    environment:
+      EDGEDB_SERVER_SECURITY: ${EDGEDB_SERVER_SECURITY}
+    ports:
+      - "${EDGEDB_PORT}:5656"
+    volumes:
+      - edgedb_data:/var/lib/edgedb/data
+
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DB}
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  edgedb_data:
+  mysql_data:

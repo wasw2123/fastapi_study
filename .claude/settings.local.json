@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(edgedb --version)",
+      "Bash(mysql --version)"
+    ]
+  }
+}
