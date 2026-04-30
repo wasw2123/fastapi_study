@@ -28,7 +28,7 @@ def get_test_db_config() -> dict[str, Any]:
 
 
 @pytest.fixture(scope="session", autouse=True)
-def initialize(request: FixtureRequest) -> Generator[None, None]:
+def initialize(request: FixtureRequest) -> Generator[None, None, None]:
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
 

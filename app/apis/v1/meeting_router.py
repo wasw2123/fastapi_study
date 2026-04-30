@@ -28,8 +28,8 @@ from app.services.meeting_service_mysql import (
     service_update_meeting_title_mysql,
 )
 
-edgedb_router = APIRouter(prefix="/v1/edgedb/meetings", tags=["meeting"])
-mysql_router = APIRouter(prefix="/v1/mysql/meetings", tags=["meeting"])
+edgedb_router = APIRouter(prefix="/v1/edgedb/meetings", tags=["Meeting"])
+mysql_router = APIRouter(prefix="/v1/mysql/meetings", tags=["Meeting"])
 # 이부분
 # 실전에서는 어떤 db를 사용하는지 url에 적을 필요가 없음
 # 강의에서만 사용 이유는 데이터를 한 디비에서만 사용하기 위함

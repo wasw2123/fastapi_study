@@ -1,6 +1,6 @@
 from enum import StrEnum
 
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Env(StrEnum):
@@ -10,6 +10,8 @@ class Env(StrEnum):
 
 
 class Config(BaseSettings):
+    model_config = SettingsConfigDict(extra="ignore")
+
     ENV: Env = Env.LOCAL
 
     MYSQL_HOST: str = "localhost"

@@ -20,5 +20,29 @@ module default {
         required location: str{
             default := "";
         };
+        multi participants := .<meeting[is Participant];
     }
+
+    type Participant extending Auditable {
+        required name -> str;
+        required meeting -> Meeting;
+        multi dates := .< participant[is ParticipantDate];
+    }
+
+    type ParticipantDate extending Auditable {
+        required date -> cal::local_date;
+        required participant -> Participant {
+            on target delete delete source;
+        }
+        constraint exclusive on ((.date, .participant));
+        required starred -> bool {
+            default := false;
+        }
+        required enabled -> bool {
+            default := true;
+        }
+        
+    }
+
+
 }
